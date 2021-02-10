@@ -1,0 +1,20 @@
+<h1>{{ title }}</h1>
+<table>
+  <thead>
+    <th>ID</th>
+    <th>Name</th>
+  </thead>
+  <tbody *ngFor="let person of people">
+    <tr>
+      <td>{{ person.id }}</td>
+      <td>{{ person.name }}</td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+<app-people></app-people>
+
+
+
+
+<router-outlet></router-outlet>
