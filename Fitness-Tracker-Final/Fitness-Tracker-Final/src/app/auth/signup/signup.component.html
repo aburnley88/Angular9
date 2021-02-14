@@ -1,5 +1,5 @@
 <section class="signup-form">
-    <form fxLayout="column" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap= "10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
         <mat-form-field  appearance="legacy" >
             <mat-label >Email</mat-label>
             <input type="email" 
@@ -28,8 +28,26 @@
             <mat-hint align ="end">
                {{ pwInput.value?.length }}/8 
             </mat-hint>
-            <mat-error>password is invalid</mat-error>
+            <mat-error *ngIf="pwInput.hasError('required')">Password cannot be empty</mat-error>
         </mat-form-field>
-        <br />
-        <button id="submit" mat-raised-button color="primary">Submit</button>
+        <mat-form-field>
+            <input 
+            matInput 
+            [matDatepicker]="picker" 
+            [max] = "maxDate" 
+            ngModel
+            name = "birthdate"
+            required/>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-hint>Enter your date of birth</mat-hint>
+        </mat-form-field>
+        <mat-checkbox
+        ngModel
+        name = "terms"
+        required
+        color="primary">
+        Check here to agere to terms and conditions
+        </mat-checkbox>
+        <button id="submit" mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
     </form>
