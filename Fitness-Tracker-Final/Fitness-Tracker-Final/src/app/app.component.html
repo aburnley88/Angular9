@@ -1,1 +1,13 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation"> 
+        <p>I'm the sideNav</p>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">My toolbar</mat-toolbar>
+        <main>
+            <router-outlet></router-outlet>
+        </main>           
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+

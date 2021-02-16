@@ -1,1 +1,31 @@
-<p>login works!</p>
+<form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap= "10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <mat-form-field  appearance="legacy" >
+        <mat-label >Email</mat-label>
+        <input type="email" 
+        matInput 
+        placeholder="enter your email address" 
+        ngModel 
+        name="email"
+        email 
+        required
+        #emailInput="ngModel"
+        />
+        <mat-error *ngIf="emailInput.hasError('required')">email cannot be empty</mat-error>
+        <mat-error *ngIf="!emailInput.hasError('required')">email is invalid</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy" hintLabel="Must be at least 8 characters">
+        <mat-label >Password</mat-label>
+        <input type="password" 
+        matInput 
+        placeholder="enter a password" 
+        ngModel 
+        name="password"
+        required
+        minlength="8"
+        #pwInput="ngModel"/>
+        <mat-hint align ="end">
+           {{ pwInput.value?.length }}/8 
+        </mat-hint>
+        <mat-error *ngIf="pwInput.hasError('required')">Password cannot be empty</mat-error>
+    </mat-form-field>
