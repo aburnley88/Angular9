@@ -1,3 +1,4 @@
+import { AuthService } from './auth/auth.service';
 
 import { MaterialsModule } from './materials/materials.module';
 import { NgModule } from '@angular/core';
@@ -37,7 +38,7 @@ import { StopTrainingComponent } from './training/stop-training/stop-training.co
     FlexLayoutModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
   entryComponents: [StopTrainingComponent]
 })
